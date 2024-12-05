@@ -38,10 +38,10 @@ export default buildConfig({
 					exportName: "LogoutButton"
 				}
 			},
-			afterNavLinks: [
+			actions: [
 				{
-					path: "/components/mark",
-					exportName: "Mark"
+					path: "/components/account-link",
+					exportName: "AccountLink"
 				}
 			]
 		}

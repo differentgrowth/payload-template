@@ -7,6 +7,7 @@ export const LogoutButton = () => {
 		<Button
 			variant="secondary"
 			size="icon"
+			className="border-0"
 		>
 			<SignOut />
 		</Button>

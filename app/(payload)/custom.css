@@ -182,6 +182,11 @@
 	--theme-accent-1000: var(--color-accent-1000);
 }
 
+/* Account button */
+.app-header__account {
+	display: none;
+}
+
 /* Nav Button */
 .hamburger__wrapper {
 	background-color: var(--theme-elevation-100);
