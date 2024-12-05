@@ -1,0 +1,314 @@
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	/* ui.shadcn */
+	--background: 0 0% 100%;
+	--foreground: 20 14.3% 4.1%;
+	--card: 0 0% 100%;
+	--card-foreground: 20 14.3% 4.1%;
+	--popover: 0 0% 100%;
+	--popover-foreground: 20 14.3% 4.1%;
+	--primary: 24 9.8% 10%;
+	--primary-foreground: 60 9.1% 97.8%;
+	--secondary: 60 4.8% 95.9%;
+	--secondary-foreground: 24 9.8% 10%;
+	--muted: 60 4.8% 95.9%;
+	--muted-foreground: 25 5.3% 44.7%;
+	--accent: 60 4.8% 95.9%;
+	--accent-foreground: 24 9.8% 10%;
+	--destructive: 0 84.2% 60.2%;
+	--destructive-foreground: 60 9.1% 97.8%;
+	--success: 173.4 80.4% 40%;
+	--success-foreground: 166.2 76.5% 96.7%;
+	--warning: 37.7 92.1% 50.2%;
+	--warning-foreground: 48 100% 96.1%;
+	--info: 238.7 83.5% 66.7%;
+	--info-foreground: 225.9 100% 96.7%;
+	--border: 20 5.9% 90%;
+	--input: 20 5.9% 90%;
+	--ring: 20 14.3% 4.1%;
+	--radius: 0.5rem;
+	--chart-1: 20 14.3% 4.1%;
+	--chart-2: 24 9.8% 10%;
+	--chart-3: 12 6.5% 15.1%;
+	--chart-4: 30 6.3% 25.1%;
+	--chart-5: 33.3 5.5% 32.4%;
+	--sidebar-background: 0 0% 98%;
+	--sidebar-foreground: 240 5.3% 26.1%;
+	--sidebar-primary: 240 5.9% 10%;
+	--sidebar-primary-foreground: 0 0% 98%;
+	--sidebar-accent: 240 4.8% 95.9%;
+	--sidebar-accent-foreground: 240 5.9% 10%;
+	--sidebar-border: 220 13% 91%;
+	--sidebar-ring: 217.2 91.2% 59.8%;
+
+	/* Variables */
+	--theme-bg: var(--theme-elevation-0);
+	--theme-input-bg: var(--theme-elevation-0);
+	--theme-text: var(--theme-elevation-800);
+	--theme-overlay: rgba(5, 5, 5, 0.5);
+	--font-body: "var(--font-geist-sans)", system-ui;
+	--font-mono: monospace;
+	--font-serif: serif;
+	--style-radius-s: 4px;
+	--style-radius-m: 8px;
+	--style-radius-l: 16px;
+	--nav-width: 275px;
+
+	/* Color Shades */
+	--color-base-0: #ffffff;
+	--color-base-50: #eeeeee;
+	--color-base-100: #dddddd;
+	--color-base-150: #cccccc;
+	--color-base-200: #bbbbbb;
+	--color-base-250: #ababab;
+	--color-base-300: #9a9a9a;
+	--color-base-350: #898989;
+	--color-base-400: #787878;
+	--color-base-450: #676767;
+	--color-base-500: #0a0a0a;
+	--color-base-550: #090909;
+	--color-base-600: #080808;
+	--color-base-650: #080808;
+	--color-base-700: #070707;
+	--color-base-750: #060606;
+	--color-base-800: #060606;
+	--color-base-850: #050505;
+	--color-base-900: #040404;
+	--color-base-950: #030303;
+	--color-success-0: #ffffff;
+	--color-success-50: #effaf9;
+	--color-success-100: #dff5f3;
+	--color-success-150: #cef0ed;
+	--color-success-200: #beebe6;
+	--color-success-250: #aee7e0;
+	--color-success-300: #9ee2da;
+	--color-success-350: #8eddd4;
+	--color-success-400: #7dd8ce;
+	--color-success-450: #6dd3c8;
+	--color-success-500: #13b2a0;
+	--color-success-550: #12a595;
+	--color-success-600: #119889;
+	--color-success-650: #0f8c7e;
+	--color-success-700: #0e7f72;
+	--color-success-750: #0c7267;
+	--color-success-800: #0b665c;
+	--color-success-850: #0a5950;
+	--color-success-900: #084c45;
+	--color-success-950: #073f39;
+	--color-warning-0: #ffffff;
+	--color-warning-50: #fef8ee;
+	--color-warning-100: #fef2dd;
+	--color-warning-150: #fdebcd;
+	--color-warning-200: #fce4bc;
+	--color-warning-250: #fcdeab;
+	--color-warning-300: #fbd79a;
+	--color-warning-350: #fad089;
+	--color-warning-400: #f9c978;
+	--color-warning-450: #f9c368;
+	--color-warning-500: #ed990b;
+	--color-warning-550: #dc8e0a;
+	--color-warning-600: #cb8309;
+	--color-warning-650: #ba7808;
+	--color-warning-700: #a96d08;
+	--color-warning-750: #986207;
+	--color-warning-800: #875706;
+	--color-warning-850: #764c05;
+	--color-warning-900: #654105;
+	--color-warning-950: #543604;
+	--color-error-0: #ffffff;
+	--color-error-50: #fef2f2;
+	--color-error-100: #fde5e5;
+	--color-error-150: #fcd8d8;
+	--color-error-200: #fbcbcb;
+	--color-error-250: #f9bfbf;
+	--color-error-300: #f8b2b2;
+	--color-error-350: #f7a5a5;
+	--color-error-400: #f69898;
+	--color-error-450: #f58b8b;
+	--color-error-500: #e74242;
+	--color-error-550: #d63d3d;
+	--color-error-600: #c63838;
+	--color-error-650: #b53434;
+	--color-error-700: #a52f2f;
+	--color-error-750: #942a2a;
+	--color-error-800: #842626;
+	--color-error-850: #732121;
+	--color-error-900: #631c1c;
+	--color-error-950: #521717;
+	--color-accent-0: #ffffff;
+	--color-accent-50: #fefefe;
+	--color-accent-100: #fefefd;
+	--color-accent-150: #fdfdfd;
+	--color-accent-200: #fcfcfc;
+	--color-accent-250: #fcfcfb;
+	--color-accent-300: #fbfbfa;
+	--color-accent-350: #fafafa;
+	--color-accent-400: #f9f9f9;
+	--color-accent-450: #f9f9f8;
+	--color-accent-500: #ededec;
+	--color-accent-550: #dcdcdb;
+	--color-accent-600: #cbcbca;
+	--color-accent-650: #babab9;
+	--color-accent-700: #a9a9a8;
+	--color-accent-750: #989897;
+	--color-accent-800: #878787;
+	--color-accent-850: #767676;
+	--color-accent-900: #656565;
+	--color-accent-950: #545454;
+
+	/* Theme Accent Colors */
+	--theme-accent-0: var(--color-accent-0);
+	--theme-accent-50: var(--color-accent-50);
+	--theme-accent-100: var(--color-accent-100);
+	--theme-accent-150: var(--color-accent-150);
+	--theme-accent-200: var(--color-accent-200);
+	--theme-accent-250: var(--color-accent-250);
+	--theme-accent-300: var(--color-accent-300);
+	--theme-accent-350: var(--color-accent-350);
+	--theme-accent-400: var(--color-accent-400);
+	--theme-accent-450: var(--color-accent-450);
+	--theme-accent-500: var(--color-accent-500);
+	--theme-accent-550: var(--color-accent-550);
+	--theme-accent-600: var(--color-accent-600);
+	--theme-accent-650: var(--color-accent-650);
+	--theme-accent-700: var(--color-accent-700);
+	--theme-accent-750: var(--color-accent-750);
+	--theme-accent-800: var(--color-accent-800);
+	--theme-accent-850: var(--color-accent-850);
+	--theme-accent-900: var(--color-accent-900);
+	--theme-accent-950: var(--color-accent-950);
+	--theme-accent-1000: var(--color-accent-1000);
+}
+
+/* Nav Button */
+.hamburger__wrapper {
+	background-color: var(--theme-elevation-100);
+	border: 1px solid var(--theme-elevation-200);
+}
+.hamburger:before {
+	background-color: var(--theme-elevation-100);
+	border: 1px solid var(--theme-elevation-200);
+}
+.hamburger:after {
+	background-color: var(--theme-elevation-100);
+	border: 1px solid var(--theme-elevation-200);
+}
+
+/* Nav Group Toggle (empty) */
+/* .nav-group__toggle {} */
+
+/* Nav Group Icon */
+.nav-group__indicator svg .stroke {
+	stroke: var(--theme-elevation-700);
+}
+
+/* Nav Group Label */
+.nav-group__label {
+	color: var(--theme-elevation-700);
+}
+
+/* Nav */
+.nav {
+	background-color: var(--theme-elevation-100);
+}
+
+/* Dashboard Card Labels */
+.dashboard__label {
+	@apply font-sans;
+}
+
+/* Dashboard Card */
+.card {
+	background-color: var(--theme-elevation-100);
+	border: 1px solid var(--theme-elevation-200);
+}
+
+/* Dashboard Card Title */
+.card__title {
+	@apply font-sans;
+}
+
+/* Dashboard Card Action Button (empty) */
+/* .card__actions {} */
+
+/* Background (empty) */
+/* .template-default__wrap {} */
+
+/* Primary Button */
+.btn--style-primary {
+	background-color: var(--theme-elevation-900);
+}
+
+/* Pill (empty) */
+/* .pill {} */
+
+/* Input Field */
+.field-type.text:not(.has-many) input {
+	border: 1px solid var(--theme-elevation-200);
+}
+
+/* Document Header (empty) */
+/* .doc-header__title {} */
+
+/* Success Toast Close Button (empty) */
+/* .Toastify .Toastify__close-button--success {} */
+
+/* Success Toast Progress Bar (empty) */
+/* .Toastify .Toastify__toast--success .Toastify__progress-bar {} */
+
+/* Success Toast (empty) */
+/* .Toastify .Toastify__toast--success {} */
+
+/* Success Toast Close Button (empty) */
+/* .Toastify .Toastify__close-button--error {} */
+
+/* Success Toast Progress Bar (empty) */
+/* .Toastify .Toastify__toast--error .Toastify__progress-bar {} */
+
+/* Success Toast (empty) */
+/* .Toastify .Toastify__toast--error {} */
+
+/* Collapsible */
+.collapsible {
+	border-radius: 4px;
+}
+
+/* Collapsible Content */
+.collapsible__content {
+	background-color: var(--theme-elevation-0);
+}
+
+/* Collapsible Toggle */
+.collapsible--style-default > .collapsible__toggle-wrap .collapsible__toggle {
+	background-color: var(--theme-elevation-50);
+}
+
+/* Collapsible Style Default */
+.collapsible--style-default {
+	border: 1px solid var(--theme-elevation-200);
+}
+
+/* Table Row Odd */
+.table tbody tr:nth-child(odd) {
+	background-color: var(--theme-elevation-50);
+}
+
+/* Search Filter Wrapper (empty) */
+/* .list-controls__wrap {} */
+
+/* Search  Input (empty) */
+/* .search-filter__input {} */
+
+* {
+	@apply border-border;
+}
+
+html {
+	@apply font-sans;
+}
+
+body {
+	@apply bg-background text-foreground;
+}

@@ -1,5 +1,6 @@
 import path from "node:path"
 import { fileURLToPath } from "node:url"
+
 // storage-adapter-import-placeholder
 import { postgresAdapter } from "@payloadcms/db-postgres"
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud"
@@ -7,7 +8,6 @@ import { lexicalEditor } from "@payloadcms/richtext-lexical"
 import { buildConfig } from "payload"
 import sharp from "sharp"
 
-import { Media } from "@/collections/Media"
 import { Users } from "@/collections/Users"
 
 const filename = fileURLToPath(import.meta.url)
@@ -18,9 +18,35 @@ export default buildConfig({
 		user: Users.slug,
 		importMap: {
 			baseDir: path.resolve(dirname)
+		},
+		theme: "light",
+		avatar: "gravatar",
+		components: {
+			graphics: {
+				Icon: {
+					path: "/components/mark",
+					exportName: "Mark"
+				},
+				Logo: {
+					path: "/components/logo",
+					exportName: "Logo"
+				}
+			},
+			logout: {
+				Button: {
+					path: "/components/logout",
+					exportName: "LogoutButton"
+				}
+			},
+			afterNavLinks: [
+				{
+					path: "/components/mark",
+					exportName: "Mark"
+				}
+			]
 		}
 	},
-	collections: [Users, Media],
+	collections: [Users],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET || "",
 	typescript: {

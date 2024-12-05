@@ -4,7 +4,11 @@
 		"enabled": true
 	},
 	"files": {
-		"ignore": ["node_modules/**", "payload-types.ts", "app/(payload)/layout.tsx"]
+		"ignore": [
+			"node_modules/**",
+			"payload-types.ts",
+			"app/(payload)/**/*.{ts,tsx,js}"
+		]
 	},
 	"vcs": {
 		"enabled": true,
