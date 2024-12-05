@@ -24,6 +24,9 @@ importers:
       '@payloadcms/richtext-lexical':
         specifier: ^3.2.1
         version: 3.2.2(wltbdsfezqdktuhfy3d2obnfdi)
+      '@payloadcms/translations':
+        specifier: ^3.4.0
+        version: 3.4.0
       '@phosphor-icons/react':
         specifier: ^2.1.7
         version: 2.1.7(react-dom@19.0.0-rc-65a56d0e-20241020(react@19.0.0-rc-65a56d0e-20241020))(react@19.0.0-rc-65a56d0e-20241020)
@@ -1263,6 +1266,9 @@ packages:
 
   '@payloadcms/translations@3.2.2':
     resolution: {integrity: sha512-7rZI8KVMIoDOj2+niwcaTKVU4BucsfQK2k6RTAxin8S4mpf9VVjXlfaZJsmvn9sEFOjeEtfd1vUBbBA6+OpYLw==}
+
+  '@payloadcms/translations@3.4.0':
+    resolution: {integrity: sha512-ilaZvnjnlm8TecTnuQp8jkz5Kp3CP3XFoDxkKQ2T0KyzUEuCTMnlXKeY+bbBtj02u6X13egmvTHjH9CX1mTlMg==}
 
   '@payloadcms/ui@3.2.2':
     resolution: {integrity: sha512-tioqi1ofi5zNzhAJjuAUm80Zo1+xaAwiJLHkT86w2QQyWdIci2IUBfTckMhj3cUgZMmfe77D9+Mf/3M48lrTLA==}
@@ -5097,6 +5103,10 @@ snapshots:
       - typescript
 
   '@payloadcms/translations@3.2.2':
+    dependencies:
+      date-fns: 4.1.0
+
+  '@payloadcms/translations@3.4.0':
     dependencies:
       date-fns: 4.1.0
 
