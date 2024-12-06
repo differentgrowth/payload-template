@@ -1,15 +1,20 @@
+import Link from "next/link"
+
 import { SignOut } from "@phosphor-icons/react/dist/ssr"
 
-import { Button } from "@/components/ui/button"
+import { buttonVariants } from "@/components/ui/button"
 
 export const LogoutButton = () => {
 	return (
-		<Button
-			variant="secondary"
-			size="icon"
-			className="border-0"
+		<Link
+			href="/admin/logout"
+			className={buttonVariants({
+				variant: "outline",
+				size: "icon",
+				className: "inline-flex"
+			})}
 		>
 			<SignOut />
-		</Button>
+		</Link>
 	)
 }

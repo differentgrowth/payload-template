@@ -187,6 +187,11 @@
 	display: none;
 }
 
+.nav nav a {
+	padding-inline-end: 0;
+	padding-inline-start: 0;
+}
+
 /* Nav Button */
 .hamburger__wrapper {
 	background-color: var(--theme-elevation-100);
@@ -211,7 +216,15 @@
 
 /* Nav Group Label */
 .nav-group__label {
-	color: var(--theme-elevation-700);
+	color: var(--theme-elevation-550);
+	@apply font-light;
+}
+
+.nav__link {
+	color: var(--theme-elevation-900);
+}
+.nav__link.active {
+	@apply font-semibold;
 }
 
 /* Nav */
@@ -244,6 +257,7 @@
 /* Primary Button */
 .btn--style-primary {
 	background-color: var(--theme-elevation-900);
+	color: var(--theme-elevation-100);
 }
 
 /* Pill (empty) */

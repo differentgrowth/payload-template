@@ -1,15 +1,15 @@
 import type { CollectionConfig } from "payload"
 
-import { anyone, authenticated, isAdmin } from "@/lib/access"
+import { authenticated, isAdmin } from "@/lib/access"
 
 export const Users: CollectionConfig = {
 	slug: "users",
 	access: {
 		admin: authenticated,
-		create: anyone,
+		create: isAdmin,
 		delete: isAdmin,
 		read: authenticated,
-		update: isAdmin
+		update: authenticated
 	},
 	admin: {
 		defaultColumns: ["name", "email", "role"],
@@ -29,8 +29,7 @@ export const Users: CollectionConfig = {
 				{ label: "User", value: "user" }
 			],
 			required: true,
-			defaultValue: "user",
-			hidden: true
+			defaultValue: "user"
 		}
 	],
 	timestamps: true

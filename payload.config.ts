@@ -10,6 +10,8 @@ import { es } from "@payloadcms/translations/languages/es"
 import { buildConfig } from "payload"
 import sharp from "sharp"
 
+import { Categories } from "@/collections/Categories"
+import { Posts } from "@/collections/Posts"
 import { Users } from "@/collections/Users"
 
 const filename = fileURLToPath(import.meta.url)
@@ -49,9 +51,10 @@ export default buildConfig({
 		}
 	},
 	i18n: {
+		// @ts-ignore
 		supportedLanguages: { en, es }
 	},
-	collections: [Users],
+	collections: [Users, Categories, Posts],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET || "",
 	typescript: {
