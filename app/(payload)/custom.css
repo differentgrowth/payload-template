@@ -217,14 +217,14 @@
 /* Nav Group Label */
 .nav-group__label {
 	color: var(--theme-elevation-550);
-	@apply font-light;
+	font-weight: 300;
 }
 
 .nav__link {
 	color: var(--theme-elevation-900);
 }
 .nav__link.active {
-	@apply font-semibold;
+	font-weight: 600;
 }
 
 /* Nav */
@@ -234,7 +234,7 @@
 
 /* Dashboard Card Labels */
 .dashboard__label {
-	@apply font-sans;
+	font-family: var(--font-body);
 }
 
 /* Dashboard Card */
@@ -245,7 +245,7 @@
 
 /* Dashboard Card Title */
 .card__title {
-	@apply font-sans;
+	font-family: var(--font-body);
 }
 
 /* Dashboard Card Action Button (empty) */
@@ -319,6 +319,10 @@
 
 /* Search  Input (empty) */
 /* .search-filter__input {} */
+
+.editor {
+	font-family: var(--font-body);
+}
 
 * {
 	@apply border-border;

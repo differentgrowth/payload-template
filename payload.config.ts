@@ -4,6 +4,7 @@ import { fileURLToPath } from "node:url"
 // storage-adapter-import-placeholder
 import { postgresAdapter } from "@payloadcms/db-postgres"
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud"
+import { seoPlugin } from "@payloadcms/plugin-seo"
 import { lexicalEditor } from "@payloadcms/richtext-lexical"
 import { en } from "@payloadcms/translations/languages/en"
 import { es } from "@payloadcms/translations/languages/es"
@@ -67,7 +68,8 @@ export default buildConfig({
 	}),
 	sharp,
 	plugins: [
-		payloadCloudPlugin()
+		payloadCloudPlugin(),
 		// storage-adapter-placeholder
+		seoPlugin({})
 	]
 })

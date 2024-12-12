@@ -95,8 +95,30 @@ export interface Category {
 export interface Post {
   id: number;
   title: string;
+  publishedAt?: string | null;
+  authors?: (number | User)[] | null;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: string;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
   categories?: (number | Category)[] | null;
+  relatedPosts?: (number | Post)[] | null;
   slug: string;
+  meta?: {
+    title?: string | null;
+    description?: string | null;
+  };
   updatedAt: string;
   createdAt: string;
 }
@@ -193,8 +215,18 @@ export interface CategoriesSelect<T extends boolean = true> {
  */
 export interface PostsSelect<T extends boolean = true> {
   title?: T;
+  publishedAt?: T;
+  authors?: T;
+  content?: T;
   categories?: T;
+  relatedPosts?: T;
   slug?: T;
+  meta?:
+    | T
+    | {
+        title?: T;
+        description?: T;
+      };
   updatedAt?: T;
   createdAt?: T;
 }
