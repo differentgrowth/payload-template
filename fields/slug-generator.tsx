@@ -1,5 +1,7 @@
 "use client"
 
+import { useEffect, useState } from "react"
+
 import {
 	Button,
 	FieldLabel,
@@ -12,6 +14,7 @@ import { formatSlug } from "@/lib/utils"
 
 export const SlugGenerator = () => {
 	const { value, setValue } = useField<string>({ path: "slug" })
+	const [tempValue, setTempValue] = useState(value)
 
 	const targetFieldValue = useFormFields(([fields]) => {
 		return fields.title?.value as string
@@ -22,6 +25,11 @@ export const SlugGenerator = () => {
 
 		if (value !== formattedSlug) setValue(formattedSlug)
 	}
+
+	// biome-ignore lint/correctness/useExhaustiveDependencies: <explanation>
+	useEffect(() => {
+		if (value !== tempValue) setValue(formatSlug(tempValue))
+	}, [tempValue])
 
 	return (
 		<div>
@@ -41,9 +49,11 @@ export const SlugGenerator = () => {
 
 			<TextInput
 				path="slug"
-				readOnly
 				placeholder="Generate a slug"
 				value={value}
+				onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+					setTempValue(e.target.value)
+				}
 			/>
 		</div>
 	)

@@ -4,16 +4,16 @@ import { fileURLToPath } from "node:url"
 // storage-adapter-import-placeholder
 import { postgresAdapter } from "@payloadcms/db-postgres"
 import { payloadCloudPlugin } from "@payloadcms/payload-cloud"
+import { redirectsPlugin } from "@payloadcms/plugin-redirects"
 import { seoPlugin } from "@payloadcms/plugin-seo"
 import { lexicalEditor } from "@payloadcms/richtext-lexical"
-import { en } from "@payloadcms/translations/languages/en"
-import { es } from "@payloadcms/translations/languages/es"
 import { buildConfig } from "payload"
 import sharp from "sharp"
 
 import { Categories } from "@/collections/Categories"
 import { Posts } from "@/collections/Posts"
 import { Users } from "@/collections/Users"
+import { revalidateRedirects } from "@/hooks/revalidate-redirects"
 
 const filename = fileURLToPath(import.meta.url)
 const dirname = path.dirname(filename)
@@ -51,11 +51,7 @@ export default buildConfig({
 			]
 		}
 	},
-	i18n: {
-		// @ts-ignore
-		supportedLanguages: { en, es }
-	},
-	collections: [Users, Categories, Posts],
+	collections: [Categories, Posts, Users],
 	editor: lexicalEditor(),
 	secret: process.env.PAYLOAD_SECRET || "",
 	typescript: {
@@ -69,7 +65,29 @@ export default buildConfig({
 	sharp,
 	plugins: [
 		payloadCloudPlugin(),
-		// storage-adapter-placeholder
-		seoPlugin({})
+		seoPlugin({}),
+		redirectsPlugin({
+			collections: ["posts"],
+			overrides: {
+				// @ts-expect-error
+				fields: ({ defaultFields }) => {
+					return defaultFields.map((field) => {
+						if ("name" in field && field.name === "from") {
+							return {
+								...field,
+								admin: {
+									description:
+										"You will need to rebuild the website when changing this field."
+								}
+							}
+						}
+						return field
+					})
+				},
+				hooks: {
+					afterChange: [revalidateRedirects]
+				}
+			}
+		})
 	]
 })

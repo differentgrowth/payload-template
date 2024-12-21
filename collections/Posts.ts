@@ -12,8 +12,9 @@ import {
 } from "@payloadcms/richtext-lexical"
 import type { CollectionConfig } from "payload"
 
+import { populateAuthors } from "@/hooks/populate-authors"
+import { revalidateDelete, revalidatePost } from "@/hooks/revalidate-posts"
 import { anyone, authenticated } from "@/lib/access"
-import { formatSlug } from "@/lib/utils"
 
 export const Posts: CollectionConfig<"posts"> = {
 	slug: "posts",
@@ -160,14 +161,16 @@ export const Posts: CollectionConfig<"posts"> = {
 		}
 	],
 	hooks: {
-		beforeChange: [
-			({ data }) => {
-				if (data.title) {
-					data.slug = formatSlug(data.title)
-				}
-
-				return data
+		afterChange: [revalidatePost],
+		afterRead: [populateAuthors],
+		afterDelete: [revalidateDelete]
+	},
+	versions: {
+		drafts: {
+			autosave: {
+				interval: 30000
 			}
-		]
+		},
+		maxPerDoc: 25
 	}
 }

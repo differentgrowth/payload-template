@@ -1,6 +1,6 @@
 {
 	"name": "payload-template",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"description": "A blank template to get started with Payload 3.0 in the DG way",
 	"license": "MIT",
 	"type": "module",
@@ -22,9 +22,9 @@
 		"@payloadcms/db-postgres": "^3.6.0",
 		"@payloadcms/next": "^3.6.0",
 		"@payloadcms/payload-cloud": "^3.6.0",
+		"@payloadcms/plugin-redirects": "^3.11.0",
 		"@payloadcms/plugin-seo": "^3.6.0",
 		"@payloadcms/richtext-lexical": "^3.6.0",
-		"@payloadcms/translations": "^3.6.0",
 		"@payloadcms/ui": "^3.6.0",
 		"@phosphor-icons/react": "^2.1.7",
 		"@radix-ui/react-dialog": "^1.1.2",
